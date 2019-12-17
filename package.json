@@ -1,0 +1,29 @@
+{
+  "name": "data-exchange-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:JacobCooley/data-exchange-backend.git",
+  "author": "Jacob Cooley <j.cooley42@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node .",
+    "dev": "ts-node-dev src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.2",
+    "@types/node": "^12.12.18",
+    "express": "^4.17.1",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "tslint": "^5.20.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.7.3"
+  }
+}
