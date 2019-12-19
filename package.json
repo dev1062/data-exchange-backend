@@ -6,7 +6,6 @@
   "author": "Jacob Cooley <j.cooley42@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
     "start": "ts-node src/index.ts",
