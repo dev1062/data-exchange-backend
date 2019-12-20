@@ -6,16 +6,16 @@ const app = express()
 app.use(cors())
 
 const port = process.env.PORT || 3000
-const server = 'https://api.cryptowat.ch'
+const baseUrl = 'https://api.cryptowat.ch'
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   // tslint:disable-next-line:no-console
   console.log(`server started at http://localhost:${port}`)
 })
 
 app.get('/exchanges', (req, res) => {
   axios
-    .get(`${server}/exchanges`)
+    .get(`${baseUrl}/exchanges`)
     .then(function(response) {
       res.send(response.data.result)
     })
@@ -24,9 +24,9 @@ app.get('/exchanges', (req, res) => {
     })
 })
 
-app.get('/pairs/:exchange', (req: any, res) => {
+app.get('/pairs/:exchange', (req, res) => {
   axios
-    .get(`${server}/markets/${req.params.exchange}`)
+    .get(`${baseUrl}/markets/${req.params.exchange}`)
     .then(function(response) {
       res.send(response.data)
     })
@@ -35,9 +35,9 @@ app.get('/pairs/:exchange', (req: any, res) => {
     })
 })
 
-app.get('/books/:exchange/:pair', (req: any, res) => {
+app.get('/books/:exchange/:pair', (req, res) => {
   axios
-    .get(`${server}/markets/${req.params.exchange}/${req.params.pair}/orderbook`)
+    .get(`${baseUrl}/markets/${req.params.exchange}/${req.params.pair}/orderbook`)
     .then(function(response) {
       res.send(response.data)
     })
@@ -45,3 +45,5 @@ app.get('/books/:exchange/:pair', (req: any, res) => {
       res.send({ error: error.message })
     })
 })
+
+module.exports = server

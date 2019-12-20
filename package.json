@@ -5,11 +5,27 @@
   "repository": "git@github.com:JacobCooley/data-exchange-backend.git",
   "author": "Jacob Cooley <j.cooley42@gmail.com>",
   "license": "MIT",
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.(ts)$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!node-formatter)"
+    ],
+    "moduleNameMapper": {
+      "node-formatter": "<rootDir>/node_modules/node-formatter"
+    }
+  },
   "scripts": {
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "ts-node src/index.ts",
-    "dev": "ts-node-dev src/index.ts",
+    "start": "ts-node src/baseUrl.ts",
+    "dev": "ts-node-dev src/baseUrl.ts",
     "test": "jest"
   },
   "dependencies": {
@@ -19,7 +35,6 @@
     "axios": "^0.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "moxios": "^0.4.0",
     "ts-node-dev": "^1.0.0-pre.44",
     "tslint": "^5.20.1"
   },
@@ -27,6 +42,7 @@
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
     "supertest": "^4.0.2",
+    "ts-jest": "^24.2.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.7.3"
