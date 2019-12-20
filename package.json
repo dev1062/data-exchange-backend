@@ -24,8 +24,8 @@
   "scripts": {
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "ts-node src/baseUrl.ts",
-    "dev": "ts-node-dev src/baseUrl.ts",
+    "start": "ts-node src/server.ts",
+    "dev": "ts-node-dev src/server.ts",
     "test": "jest"
   },
   "dependencies": {
