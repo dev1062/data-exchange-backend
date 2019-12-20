@@ -17,7 +17,7 @@ app.get('/exchanges', (req, res) => {
   axios
     .get(`${baseUrl}/exchanges`)
     .then(function(response) {
-      res.send(response.data.result)
+      res.send(response.data)
     })
     .catch(function(error) {
       res.send({ error: error.message })
